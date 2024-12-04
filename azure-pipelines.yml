@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+- group: build-secrets  # Reference the variable group containing the PAT
+
+steps:
+# Step to set up Maven environment with credentials
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.11'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
+  env:
+    # Use the credentials stored in the library secret
+    AZURE_ARTIFACTS_FEED_PAT: $(build-secret)
+    MAVEN_OPTS: > 
+      -Dorg.apache.maven.repository=https://pkgs.dev.azure.com/lightwellinc-clouddev/_packaging/Lightwell.MVN/maven/v1 
+      -Dusername=AAlikashi 
+      -Dpassword=$(build-secret)
