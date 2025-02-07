@@ -1,4 +1,4 @@
-name: Build and Publish Maven Package Frameworkbrowser Manually
+name: Build and Publish Maven Package Web Manually
 
 on:
   workflow_dispatch:
