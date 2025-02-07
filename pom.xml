@@ -3,17 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
     <repositories>
         <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>Lightwell.MVN</id>
-            <url>https://pkgs.dev.azure.com/lightwellinc-clouddev/_packaging/Lightwell.MVN/maven/v1</url>
+            <id>web</id>
+            <url>https://maven.pkg.github.com/EliassenInnovation/crucibleweb</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -25,8 +16,8 @@
     <distributionManagement>
 		<repository>
             <uniqueVersion>false</uniqueVersion>
-            <id>Lightwell.MVN</id>
-            <url>https://pkgs.dev.azure.com/lightwellinc-clouddev/_packaging/Lightwell.MVN/maven/v1</url>
+            <id>web</id>
+            <url>https://maven.pkg.github.com/EliassenInnovation/crucibleweb</url>
 		</repository>
     </distributionManagement>
     <groupId>com.eliassen.crucible</groupId>
@@ -39,11 +30,11 @@
             <artifactId>selenium-java</artifactId>
             <version>4.25.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.eliassen.crucible</groupId>
-            <artifactId>core</artifactId>
-            <version>1.1.2</version>
-        </dependency>
+	<dependency>
+	    <groupId>com.eliassen.crucible</groupId>
+	    <artifactId>core</artifactId>
+	    <version>1.1.2</version>
+	</dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
